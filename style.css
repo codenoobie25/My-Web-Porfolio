@@ -28,7 +28,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
+    padding: 2rem 9%;
     background-color: transparent;
     filter: drop-shadow(10px);
     display: flex;
@@ -39,7 +39,7 @@ header{
 
 .logo{
     font-size: 3rem;
-    color: #b74b4b;
+    color: #00abf0;
     font-weight: 800;
     cursor: pointer;
     transition: 0.5s ease;
@@ -48,6 +48,26 @@ header{
 .logo:hover{
     transform: scale(1.1);
 }
+
+#check {
+    display: none;
+}
+
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 3.6rem;
+    color: #00abf0;
+    cursor: pointer;
+    display: none;
+}
+.icons:hover {
+    transform: scale(1.2);
+}
+#close-icon {
+    display: none;
+}
+
 
 nav a{
     font-size: 1.8rem;
@@ -60,26 +80,43 @@ nav a{
 
 nav a:hover,
 nav a.active{
-    color: #b74b4b;
-    border-bottom: 3px solid #b74b4b;
+    color: #00abf0; 
+    border-bottom: 3px solid #00abf0;
 }
 
+
 @media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    
+
+    .icons {
+        display: block;
     }
 
-    nav.active{
+
+    #check:checked ~ .icons #menu-icon {
+        display: none;
+    }
+
+    #check:checked ~ .icons #close-icon {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background-color: black;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        
+
+        display: none; 
+        text-align: center;
+    }
+
+
+    #check:checked ~ nav {
         display: block;
     }
 
@@ -93,13 +130,13 @@ nav a.active{
     nav a.active{
         padding: 1rem;
         border-radius: 0.5rem;
-        border-bottom: 0.5rem solid #b74b4b;
+        border-bottom: 0.5rem solid #00abf0;
     }
 }
 
 section{
     min-height: 100vh;
-    padding: 5rem 9% 5rem;
+    padding: 10rem 9% 5rem;
 }
 
 .home{
@@ -107,7 +144,7 @@ section{
     justify-content: center;
     align-items: center;
     gap: 8rem;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .home .home-content h1{
@@ -117,7 +154,7 @@ section{
 }
 
 span{
-    color: #b74b4b;
+    color: #00abf0;
 }
 
 .home-content h3{
@@ -130,6 +167,44 @@ span{
     font-size: 1.6rem;
 }
 
+.bg-wallpaper{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.bg-wallpaper::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("asset/download.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.05);
+    z-index: 0;
+    animation: change 20s infinite ease-in-out;
+}
+
+.bg-wallpaper > *{
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes change{
+
+    0%{
+        background-image: url("asset/download\ \(56\).jpg");
+    }
+    50%{
+        background-image: url("asset/Black\ and\ White\ PC\ Wallpaper\ 4K.jpg");
+    }
+    100%{
+        background-image: url("asset/download.jpg");
+    }
+}
+
 .home-img{
     border-radius: 50%;
 }
@@ -138,7 +213,7 @@ span{
     position: relative;
     width: 32vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px solid #b74b4b;
+    box-shadow: 0 0 25px #19191a;
     cursor: pointer;
     transition: 0.2s linear;
 }
@@ -146,7 +221,7 @@ span{
 .home-img img:hover{
     font-size: 1.8rem;
     font-weight: 500;
-    box-shadow: 0 0 35px #b74b4b;
+    box-shadow: 0 0 35px #19191a;
 }
 
 .social-icons a{
@@ -156,19 +231,19 @@ span{
     width: 4rem;
     height: 4rem;
     background-color: transparent;
-    border: 0.2rem solid #b74b4b;
+    border: 0.2rem solid #00abf0;
     font-size: 2rem;
     border-radius: 50%;
     margin: 3rem 1.5rem 3rem 0;
     transition: 0.3s ease;
-    color: #b74b4b;
+    color: #00abf0;
 }
 
 .social-icons a:hover{
     color: black;
     transform: scale(1.3) translateY(-5px);
-    background-color: #b74b4b;
-    box-shadow: 0  0 25px #b74b4b;
+    background-color: #00abf0;
+    box-shadow: 0 0 25px #00abf0;
 }
 
 .btn{
@@ -177,19 +252,19 @@ span{
     background-color: black;
     border-radius: 4rem;
     font-size: 1.6rem;
-    color: #b74b4b;
+    color: #00abf0;
     letter-spacing: 0.3rem;
     font-weight: 600;
-    border: 2px solid #b74b4b;
+    border: 2px solid #00abf0;
     transition: 0.3s ease;
     cursor: pointer;
 }
 
 .btn:hover{
     transform: scale3d(1.03);
-    background-color: #b74b4b;
+    background-color: #00abf0;
     color: black;
-    box-shadow: 0 0 25px #b74b4b;
+    box-shadow: 0 0 25px #00abf0;
 }
 
 .typing-text{
@@ -204,13 +279,13 @@ span{
 
 .typing-text span::before{
     content: "software Developer";
-    color: #b74b4b;
+    color: #00abf0; 
     animation: words 20s infinite;
 }
 
 .typing-text span::after{
     content: "";
-    background-color: black;
+    /* background-color: black; */
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
@@ -221,13 +296,13 @@ span{
 
 @keyframes cursor{
     to{
-        border-left: 3px solid #b74b4b;
+        border-left: 3px solid #00abf0;
     }
 }
 
 @keyframes words{
     0%, 20%{
-        content: "Future Web Developer";
+        content: "Developer";
     }
     21%, 40%{
         content: "Student";
